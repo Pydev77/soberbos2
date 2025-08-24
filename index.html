@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Soberbos - Marcação de xGrupo, x4 ou x6 (Free Fire)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(-45deg, #111, #1a1a40, #222, #000);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      text-align: center;
+      color: #f4c542;
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #f4c542, 0 0 20px #f4c542;
+      animation: pulse 2s infinite;
+      margin-bottom: 5px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 10px #f4c542, 0 0 20px #f4c542; }
+      50% { text-shadow: 0 0 20px #ffdb70, 0 0 30px #ffdb70; }
+    }
+
+    form {
+      max-width: 500px;
+      margin: 30px auto;
+      background: rgba(34, 34, 34, 0.9);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(244, 197, 66, 0.4);
+      animation: fadeIn 1.2s ease-in-out;
+      position: relative;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+      color: #f4c542;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      background: #333;
+      color: #fff;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      background: #444;
+      box-shadow: 0 0 8px #f4c542;
+    }
+
+    button {
+      background: #f4c542;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #ffdb70;
+      box-shadow: 0 0 15px #f4c542, 0 0 30px #f4c542;
+      transform: scale(1.05);
+    }
+
+    .info {
+      text-align: center;
+      margin-top: 25px;
+      color: #bbb;
+      font-size: 14px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Containers para animações Lottie */
+    .lottie-container {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      top: -40px;
+      right: -40px;
+      pointer-events: none;
+    }
+
+    .lottie-bottom {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      bottom: -30px;
+      left: -30px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 Soberbos - Marcar Partida 🔥</h1>
+
+  <form id="marcacaoForm">
+    <div id="lottieTop" class="lottie-container"></div>
+    <div id="lottieBottom" class="lottie-bottom"></div>
+
+    <label for="tipo">Tipo de Partida:</label>
+    <select id="tipo" required>
+      <option value="xgrupo">xGrupo</option>
+      <option value="x4">x4</option>
+      <option value="x6">x6</option>
+    </select>
+
+    <label for="data">Data:</label>
+    <input type="date" id="data" required>
+
+    <label for="hora">Horário:</label>
+    <input type="time" id="hora" required>
+
+    <label for="grupo">Nome do Grupo:</label>
+    <input type="text" id="grupo" placeholder="Ex: Soberbos Elite" required>
+
+    <label for="organizador">Organizador:</label>
+    <input type="text" id="organizador" placeholder="Seu nome" required>
+
+    <button type="submit">✅ Marcar Partida</button>
+  </form>
+
+  <div class="info">
+    <p>⚡ Funcionamento: Segunda a Sábado ⚡</p>
+  </div>
+
+  <script>
+    // Lottie Animations
+    lottie.loadAnimation({
+      container: document.getElementById('lottieTop'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets6.lottiefiles.com/packages/lf20_5ngs2ksb.json' // Exemplo: bola animada
+    });
+
+    lottie.loadAnimation({
+      container: document.getElementById('lottieBottom'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets6.lottiefiles.com/packages/lf20_i0zpn2oc.json' // Exemplo: explosão animada
+    });
+
+    // Envio WhatsApp
+    document.getElementById('marcacaoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const tipo = document.getElementById('tipo').value;
+      const data = document.getElementById('data').value;
+      const hora = document.getElementById('hora').value;
+      const grupo = document.getElementById('grupo').value;
+      const organizador = document.getElementById('organizador').value;
+
+      const msg = encodeURIComponent(
+        `📅 Nova partida marcada!\n\n🕹 Tipo: ${tipo}\n📆 Data: ${data}\n⏰ Hora: ${hora}\n👥 Grupo: ${grupo}\n👤 Organizador: ${organizador}`
+      );
+
+      const numeros = ["11991263970"];
+      numeros.forEach(numero => {
+        window.open(`https://wa.me/55${numero}?text=${msg}`, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
